@@ -1,7 +1,4 @@
-from app import db, Template
-
-# Create the database and the tables
-db.create_all()
+from app import app, db, Template
 
 sample_template_text = """
 EXAM:
@@ -35,14 +32,18 @@ IMPRESSION:
 1. No acute osseous abnormality.
 """
 
-# Check if sample data already exists
-existing_template = db.session.query(Template).first()
-if not existing_template:
-    # Add sample templates
-    sample1 = Template(template_text=sample_template_text)
+# Wrap the following code in an app context so that we can access the database
+with app.app_context():
+    # Create the database and the tables
+    db.create_all()
+    # Check if sample data already exists
+    existing_template = db.session.query(Template).first()
+    if not existing_template:
+        # Add sample templates
+        sample1 = Template(template_text=sample_template_text)
 
-    db.session.add(sample1)
-    db.session.commit()
-    print("Added sample template")
-else:
-    print("Sample template already exists")
+        db.session.add(sample1)
+        db.session.commit()
+        print("Added sample template")
+    else:
+        print("Sample template already exists")

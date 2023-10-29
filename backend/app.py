@@ -1,10 +1,14 @@
+import os
 from flask import Flask, jsonify, abort
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.exceptions import NotFound
 
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///templates.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
+    os.path.join(BASE_DIR, 'templates.db')
 db = SQLAlchemy(app)
 
 
@@ -19,7 +23,7 @@ def index():
     return jsonify(message="Hello, world!")
 
 
-@app.route('/get-template/<int:template_id>', methods=['GET'])
+@app.route('/templates/<int:template_id>', methods=['GET'])
 def get_template(template_id):
     '''
     Get a template by ID
