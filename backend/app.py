@@ -1,7 +1,6 @@
 import os
 from flask import Flask, jsonify, abort
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.exceptions import NotFound
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
