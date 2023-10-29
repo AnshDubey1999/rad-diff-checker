@@ -1,6 +1,6 @@
 from app import app, db, Template
 
-sample_template_text = """
+SAMPLE_TEMPLATE_TEXT = """
 EXAM:
 CT [_laterality_] [Generic Bone], [without or with] IV contrast
 
@@ -40,7 +40,7 @@ with app.app_context():
     existing_template = db.session.query(Template).first()
     if not existing_template:
         # Add sample templates
-        sample1 = Template(template_text=sample_template_text)
+        sample1 = Template(template_text=SAMPLE_TEMPLATE_TEXT)
 
         db.session.add(sample1)
         db.session.commit()
