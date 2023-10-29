@@ -1,0 +1,11 @@
+# Editors/IDEs
+.vscode/
+
+# Python-specific (for the backend)
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.egg
+*.log
+.venv/
