@@ -12,3 +12,8 @@ def index():
 @app.route('/get-template/<int:template_id>', methods=['GET'])
 def get_template(template_id):
     pass
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return jsonify(error=str(e.description)), 404
