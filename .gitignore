@@ -4,9 +4,5 @@
 # Python-specific (for the backend)
 __pycache__/
 *.pyc
-*.pyo
 *.db
-*.egg-info/
-*.egg
-*.log
 .venv/
