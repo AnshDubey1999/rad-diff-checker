@@ -2,9 +2,10 @@
 import styles from "./DiffCheckForm.module.css";
 import React, { useState, useCallback } from "react";
 import { Input, Text, Textarea, Button } from "@geist-ui/core";
-import { useSetAtom } from "jotai";
-import { reportIdAtom, reportTextAtom } from "@/atoms/atoms";
+import { useAtomValue, useSetAtom } from "jotai";
+import { getTemplateAtom, reportIdAtom, reportTextAtom } from "@/atoms/atoms";
 import { useRouter } from "next/navigation";
+import { useNotifyStatus } from "../hooks/useNotifyStatus";
 
 const DiffCheckForm = () => {
   /*
@@ -12,6 +13,7 @@ const DiffCheckForm = () => {
    */
   const setReportIdAtom = useSetAtom(reportIdAtom);
   const setReportTextAtom = useSetAtom(reportTextAtom);
+  const { isLoading, isSuccess, isError, data } = useAtomValue(getTemplateAtom);
   const [reportId, setReportId] = useState<string>("");
   const [reportText, setReportText] = useState<string>("");
 
@@ -19,6 +21,7 @@ const DiffCheckForm = () => {
    * Hooks
    */
   const router = useRouter();
+  useNotifyStatus({ isError, isSuccess, isLoading });
 
   /*
    * Function definitions
@@ -68,13 +71,12 @@ const DiffCheckForm = () => {
       <div className={styles.buttonContainer}>
         <Button
           auto
-          type="secondary"
-          ghost
+          className={styles.gradientButton}
           mt={"10px"}
           onClick={() => handleSubmitClick(reportId, reportText)}
           disabled={!reportId || !reportText}
         >
-          Check Difference
+          Find Difference
         </Button>
       </div>
     </div>
