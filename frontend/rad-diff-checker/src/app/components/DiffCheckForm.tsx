@@ -1,25 +1,56 @@
 "use client";
 import styles from "./DiffCheckForm.module.css";
-import React, { useState, useCallback } from "react";
-import { Input, Text, Textarea, Button } from "@geist-ui/core";
+import React, { useState, useCallback, useEffect } from "react";
+import { Input, Text, Textarea, Button, useToasts } from "@geist-ui/core";
 import { useAtomValue, useSetAtom } from "jotai";
 import { getTemplateAtom, reportIdAtom, reportTextAtom } from "@/atoms/atoms";
+import { LoadingBarRef } from "react-top-loading-bar";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
-const DiffCheckForm = () => {
+type DiffCheckFormProps = {
+  loadingBarRef: React.MutableRefObject<LoadingBarRef | null>;
+};
+
+const DiffCheckForm = ({ loadingBarRef }: DiffCheckFormProps) => {
   /*
    * Constants
    */
   const setReportIdAtom = useSetAtom(reportIdAtom);
   const setReportTextAtom = useSetAtom(reportTextAtom);
-  const { isLoading, isSuccess, isError, data } = useAtomValue(getTemplateAtom);
   const [reportId, setReportId] = useState<string>("");
   const [reportText, setReportText] = useState<string>("");
+  const templateAtomStatus = useAtomValue(getTemplateAtom);
+  const { isLoading, isError, isSuccess, data } = templateAtomStatus;
+  const router = useRouter();
 
   /*
    * Hooks
    */
-  const router = useRouter();
+  useEffect(() => {
+    setReportIdAtom(undefined);
+    setReportTextAtom(undefined);
+  }, [setReportIdAtom, setReportTextAtom]);
+
+  useEffect(() => {
+    if (isLoading) {
+      loadingBarRef.current?.continuousStart();
+    } else {
+      loadingBarRef.current?.complete();
+    }
+  }, [loadingBarRef, isLoading]);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error("Error finding template!");
+    }
+  }, [isError]);
+
+  useEffect(() => {
+    if (isSuccess && data?.templateText) {
+      router.push("/diffcheck");
+    }
+  }, [isSuccess, router, data]);
 
   /*
    * Function definitions
@@ -42,9 +73,8 @@ const DiffCheckForm = () => {
     (reportId: string, reportText: string) => {
       setReportIdAtom(reportId);
       setReportTextAtom(reportText);
-      router.push(`/diffcheck`);
     },
-    [setReportIdAtom, setReportTextAtom, router]
+    [setReportIdAtom, setReportTextAtom]
   );
 
   return (

@@ -16,7 +16,7 @@ export const [, getTemplateAtom] = atomsWithQuery((get) => ({
     queryFn: async ({ queryKey: [, id] }) => {
       const reportId = id as string | undefined;
       
-      if (!reportId) return Promise.reject({ id: 0, templateText: "" });
+      if (!reportId) return Promise.resolve({ id: 0, templateText: "" });
 
       return getTemplateFromId(reportId);
     },
