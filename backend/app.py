@@ -1,10 +1,12 @@
 import os
 from flask import Flask, jsonify, abort
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
+CORS(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
     os.path.join(BASE_DIR, 'templates.db')
@@ -37,7 +39,7 @@ def get_template(template_id):
         abort(404, description=f"Template with ID {template_id} was not found")
 
     # Return the template as JSON
-    return jsonify(id=template.id, template_text=template.template_text)
+    return jsonify(id=template.id, templateText=template.template_text)
 
 
 @app.errorhandler(404)
