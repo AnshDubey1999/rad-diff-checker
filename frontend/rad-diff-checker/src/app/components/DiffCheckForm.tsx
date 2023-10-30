@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { useNotifyError } from "@/app/hooks/useNotifyError";
 import { useNotifyLoading } from "../hooks/useNotifyLoading";
+import { useNotifySuccess } from "../hooks/useNotifySuccess";
 
 type DiffCheckFormProps = {
   loadingBarRef: React.MutableRefObject<LoadingBarRef | null>;
@@ -36,12 +37,7 @@ const DiffCheckForm = ({ loadingBarRef }: DiffCheckFormProps) => {
 
   useNotifyLoading({ isLoading, loadingBarRef });
   useNotifyError({ isError });
-
-  useEffect(() => {
-    if (isSuccess && data?.templateText) {
-      router.push("/diffcheck");
-    }
-  }, [isSuccess, router, data]);
+  useNotifySuccess({ isSuccess, data, router });
 
   /*
    * Function definitions
