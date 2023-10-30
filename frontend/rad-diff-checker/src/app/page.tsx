@@ -24,7 +24,7 @@ const Home = () => {
         draggable
         theme="dark"
       />
-      <LoadingBar color="#f11946" ref={ref} />
+      <LoadingBar color="#FF4D4D" ref={ref} />
       <LandingAnimation />
       <Text h2 className={styles.subtitle} type="secondary">
         Welcome to RadDiffChecker!
