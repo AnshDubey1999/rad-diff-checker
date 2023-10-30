@@ -3,13 +3,26 @@ import styles from "./DiffCheckForm.module.css";
 import React, { useState, useCallback } from "react";
 import { Input, Text, Textarea, Button } from "@geist-ui/core";
 import { useSetAtom } from "jotai";
-import { reportIdAtom } from "@/atoms/atoms";
+import { reportIdAtom, reportTextAtom } from "@/atoms/atoms";
+import { useRouter } from "next/navigation";
 
 const DiffCheckForm = () => {
+  /*
+   * Constants
+   */
   const setReportIdAtom = useSetAtom(reportIdAtom);
+  const setReportTextAtom = useSetAtom(reportTextAtom);
   const [reportId, setReportId] = useState<string>("");
   const [reportText, setReportText] = useState<string>("");
 
+  /*
+   * Hooks
+   */
+  const router = useRouter();
+
+  /*
+   * Function definitions
+   */
   const handleReportIdChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setReportId(e.target.value);
@@ -27,8 +40,10 @@ const DiffCheckForm = () => {
   const handleSubmitClick = useCallback(
     (reportId: string, reportText: string) => {
       setReportIdAtom(reportId);
+      setReportTextAtom(reportText);
+      router.push(`/diffcheck`);
     },
-    [setReportIdAtom]
+    [setReportIdAtom, setReportTextAtom, router]
   );
 
   return (
@@ -57,6 +72,7 @@ const DiffCheckForm = () => {
           ghost
           mt={"10px"}
           onClick={() => handleSubmitClick(reportId, reportText)}
+          disabled={!reportId || !reportText}
         >
           Check Difference
         </Button>

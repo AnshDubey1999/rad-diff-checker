@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <JotaiProvider>
       <GeistProvider themeType={ThemeType.DARK}>
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <html lang="en">
           <body className={inter.className}>
             <DevTools />

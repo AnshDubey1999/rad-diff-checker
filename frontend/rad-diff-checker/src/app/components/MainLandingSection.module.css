@@ -1,0 +1,88 @@
+.firstWordDiv {
+    position: relative;
+  }
+.rowContainer {
+  flex-direction: row;
+  flex: 1;
+  display: flex;
+}
+  
+  @keyframes animated-gradient-title-1 {
+    0%,
+    16.667%,
+    100% {
+      opacity: 1;
+    }
+  
+    33.333%,
+    83.333% {
+      opacity: 0;
+    }
+  }
+  
+  .firstWordDiv .wordOverlay {
+    background-image: linear-gradient(45deg, #007CF0, #00DFD8);
+    animation: animated-gradient-title-1 8s infinite;
+  }
+  
+  .secondWordDiv {
+    position: relative;
+  }
+  
+  @keyframes animated-gradient-title-2 {
+    0%,
+    16.667%,
+    66.667%,
+    100% {
+      opacity: 0;
+    }
+  
+    33.333%,
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  .secondWordDiv .wordOverlay {
+    background-image: linear-gradient(45deg, #7928CA, #FF0080);
+    animation: animated-gradient-title-2 8s infinite;
+  }
+  
+  .thirdWordDiv {
+    position: relative;
+  }
+  
+  @keyframes animated-gradient-title-3 {
+    0%,
+    50%,
+    100% {
+      opacity: 0;
+    }
+  
+    66.667%,
+    83.333% {
+      opacity: 1;
+    }
+  }
+  
+  .thirdWordDiv .wordOverlay {
+    background-image: linear-gradient(45deg, #FF4D4D, #F9CB28);
+    animation: animated-gradient-title-3 8s infinite;
+  }
+  
+  .commonWordDiv .wordOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: 6rem;
+  }
+  
+.commonWordDiv .mainWord {
+font-size: 6rem;
+}
