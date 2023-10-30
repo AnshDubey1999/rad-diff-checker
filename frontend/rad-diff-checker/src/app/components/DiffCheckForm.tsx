@@ -5,7 +5,6 @@ import { Input, Text, Textarea, Button } from "@geist-ui/core";
 import { useAtomValue, useSetAtom } from "jotai";
 import { getTemplateAtom, reportIdAtom, reportTextAtom } from "@/atoms/atoms";
 import { useRouter } from "next/navigation";
-import { useNotifyStatus } from "../hooks/useNotifyStatus";
 
 const DiffCheckForm = () => {
   /*
@@ -21,7 +20,6 @@ const DiffCheckForm = () => {
    * Hooks
    */
   const router = useRouter();
-  useNotifyStatus({ isError, isSuccess, isLoading });
 
   /*
    * Function definitions
