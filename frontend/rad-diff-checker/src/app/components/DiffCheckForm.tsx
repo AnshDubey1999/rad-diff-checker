@@ -7,6 +7,8 @@ import { getTemplateAtom, reportIdAtom, reportTextAtom } from "@/atoms/atoms";
 import { LoadingBarRef } from "react-top-loading-bar";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { useNotifyError } from "@/app/hooks/useNotifyError";
+import { useNotifyLoading } from "../hooks/useNotifyLoading";
 
 type DiffCheckFormProps = {
   loadingBarRef: React.MutableRefObject<LoadingBarRef | null>;
@@ -32,19 +34,8 @@ const DiffCheckForm = ({ loadingBarRef }: DiffCheckFormProps) => {
     setReportTextAtom(undefined);
   }, [setReportIdAtom, setReportTextAtom]);
 
-  useEffect(() => {
-    if (isLoading) {
-      loadingBarRef.current?.continuousStart();
-    } else {
-      loadingBarRef.current?.complete();
-    }
-  }, [loadingBarRef, isLoading]);
-
-  useEffect(() => {
-    if (isError) {
-      toast.error("Error finding template!");
-    }
-  }, [isError]);
+  useNotifyLoading({ isLoading, loadingBarRef });
+  useNotifyError({ isError });
 
   useEffect(() => {
     if (isSuccess && data?.templateText) {
@@ -93,6 +84,7 @@ const DiffCheckForm = ({ loadingBarRef }: DiffCheckFormProps) => {
         placeholder="Enter the report text here..."
         width={"100%"}
         height={"60%"}
+        style={{ height: "100%" }}
         value={reportText}
         onChange={handleReportTextChange}
       />

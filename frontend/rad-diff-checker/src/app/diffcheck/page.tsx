@@ -3,12 +3,13 @@ import { Text } from "@geist-ui/core";
 import styles from "./page.module.css";
 import { getTemplateAtom, reportTextAtom } from "@/atoms/atoms";
 import { useAtomValue } from "jotai";
-import React, { useEffect } from "react";
+import React from "react";
 import DiffViewer, {
   DiffMethod,
   ReactDiffViewerStylesOverride,
 } from "react-diff-viewer-continued";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const diffViewerStyles: ReactDiffViewerStylesOverride = {
   variables: {
