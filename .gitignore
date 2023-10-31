@@ -4,5 +4,4 @@
 # Python-specific (for the backend)
 __pycache__/
 *.pyc
-*.db
 .venv/

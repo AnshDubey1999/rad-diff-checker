@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  backend:
+    tty: true
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    
+
+  frontend:
+    build:
+      context: ./frontend/rad-diff-checker
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+
