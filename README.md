@@ -1,6 +1,15 @@
 # Welcome to RadDiffChecker
 
-## Snapshots
+## Snaps/Videos
+
+![Screen Shot 2023-10-31 at 2 39 06 AM](https://github.com/AnshDubey1999/rad-diff-checker/assets/43154989/a1585709-0ed4-4776-8bf8-4d53e1f38be4)
+
+![Screen Shot 2023-10-31 at 2 39 29 AM](https://github.com/AnshDubey1999/rad-diff-checker/assets/43154989/6beb133c-7d50-45d9-b585-603bb589c071)
+
+https://github.com/AnshDubey1999/rad-diff-checker/assets/43154989/124a844d-ec37-4e7a-bff6-37f39989fc4c
+
+
+
 
 ## Introduction
  - Given a Report ID and report text, if the backend flask API finds a report with the given id, it will show the difference between the input and the output file.
