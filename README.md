@@ -14,7 +14,7 @@
 ### Frontend:
 - **NextJS**: For UI
 - **Jotai/Jotai Devtools**: For state management/visualizing state
-- **Tanstack query**: For API-related advantages (optimizations like caching, easy status handling)
+- **Tanstack query**: For API-related advantages (optimizations like caching, easy status handling, auto-refetch n times on errors in case of unknown issues)
 - **Axios**: For making API calls
 
 ### Others:
