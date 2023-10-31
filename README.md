@@ -50,7 +50,7 @@ https://github.com/AnshDubey1999/rad-diff-checker/assets/43154989/124a844d-ec37-
 - Run `flask run`. This launches the backend.
 - Navigate to the `/frontend/rad-diff-checker` folder where you see `package.json`.
 - Run `npm install` for installing all dependencies.
-- Run `npm start` for running the application.
+- Run `npm run dev` for running the application.
 - Access it on http://localhost:3000
 
 
