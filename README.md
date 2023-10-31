@@ -8,17 +8,17 @@
   
 ## Technologies
 ### Backend:
-- Flask: For backend API
-- SQLite: For storing sample data (could've hardcoded but this is good for scalability in the future)
+- **Flask**: For backend API
+- **SQLite**: For storing sample data (could've hardcoded but this is good for scalability in the future)
 
 ### Frontend:
-- NextJS: For UI
-- Jotai/Jotai Devtools: For state management/visualizing state
-- Tanstack query: For API-related advantages (optimizations like caching, easy status handling)
-- Axios: For making API calls
+- **NextJS**: For UI
+- **Jotai/Jotai Devtools**: For state management/visualizing state
+- **Tanstack query**: For API-related advantages (optimizations like caching, easy status handling)
+- **Axios**: For making API calls
 
 ### Others:
-- Docker: For containerizing the app
+- **Docker**: For containerizing the app
 
 ## Steps to run the app
 ### Using Docker
