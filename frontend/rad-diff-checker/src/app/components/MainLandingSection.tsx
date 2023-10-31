@@ -18,10 +18,10 @@ const LandingAnimation = () => {
       <div className={styles.secondWordDiv}>
         <div className={styles.commonWordDiv}>
           <Text h1 className={styles.mainWord}>
-            Inspect.
+            Diff.
           </Text>
           <Text h1 className={styles.wordOverlay}>
-            Inspect.
+            Diff.
           </Text>
         </div>
       </div>
