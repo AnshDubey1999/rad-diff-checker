@@ -55,7 +55,7 @@ https://github.com/AnshDubey1999/rad-diff-checker/assets/43154989/124a844d-ec37-
 ## Architectural Notes
 ### Backend
 - There is not much here. Error handling/main controller/DB model definitions are all in `app.py`.
-- `initialize_db.py` is mainly for initialization. Not needed to run after the first time as I am shipping the app with it (so tiny).
+- `initialize_db.py` is mainly for initialization. Not needed to run on other users' end as I am shipping the app with the db (so tiny).
 
 ### Frontend
 Main core of the app is in 3 directories inside `src` 
