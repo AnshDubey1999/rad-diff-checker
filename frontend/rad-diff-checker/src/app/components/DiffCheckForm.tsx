@@ -66,7 +66,7 @@ const DiffCheckForm = ({ loadingBarRef }: DiffCheckFormProps) => {
 
   return (
     <div className={styles.container}>
-      <Text className={styles.formLabel}>Report Id</Text>
+      <Text className={styles.formLabel}>Template Id</Text>
       <Input
         crossOrigin={null}
         placeholder="eg. 1234"
