@@ -21,6 +21,7 @@ https://github.com/AnshDubey1999/rad-diff-checker/assets/43154989/124a844d-ec37-
 ### Frontend:
 - **NextJS**: For UI
 - **Jotai/Jotai Devtools**: For state management/visualizing state
+- **Geist UI**: For UI components. (https://geist-ui.dev/en-us).
 - **Tanstack query**: For API-related advantages (optimizations like caching, easy status handling, auto-refetch n times on errors in case of unknown issues)
 - **Axios**: For making API calls
 
@@ -35,8 +36,9 @@ https://github.com/AnshDubey1999/rad-diff-checker/assets/43154989/124a844d-ec37-
 - Wait for both the containers to be built (if you see in the logs "Serving flask app .." and also "Ready in ... s" means both the app have been built)
 - Access the UI at http://localhost:3000 (make sure nothing is running on that port). 
 
-- **Note** that it may take up a while to first bundle the application even after it's ready when you try to access it. 
-- **Another note**: Initially, only report with ID = 1 is defined. Once you input 1, add other inputs and Find difference , because of the optimized bundle it may not have bundled the second page leading to a weird behaviour of not navigating the user to the next page. In that case, just reload the app and wait for the compilation of the 2nd page to be over. 
+- **Note** that it may take up a while to first bundle the application even after it's ready when you try to access it.
+- **Another note**: Initially, only report with ID = 1 is defined. Once you input 1, add other inputs and Find difference , because of the optimized bundle it may not have bundled the second page leading to a weird behaviour of not navigating the user to the next page. In that case, just reload the app and wait for the compilation of the 2nd page to be over.
+- Additionally, ignore the console warnings while running the UI. Geist-UI, the UI library I am using is getting old (not maintained since past few months sadly) hence those warnings. Need to switch to Mantine or Chakra soon :)
 
 ### Using Repository (Recommended for the best experience):
 - Clone this repository.
